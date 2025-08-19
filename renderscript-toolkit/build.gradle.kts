@@ -8,6 +8,7 @@ android {
     compileSdk = 34
     namespace = "com.google.android.renderscript"
     ndkVersion = "29.0.13846066"
+    group = "com.i-nara.renderscript"
 
     defaultConfig {
         minSdk = 24
@@ -31,7 +32,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
@@ -39,11 +40,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_19
-        targetCompatibility = JavaVersion.VERSION_19
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "19"
+        jvmTarget = "1.8"
     }
     externalNativeBuild {
         cmake {
@@ -51,6 +52,8 @@ android {
         }
     }
 }
+
+// gradle :renderscript-toolkit:publishReleasePublicationToGitHubPackagesRepository
 
 afterEvaluate {
     publishing {
