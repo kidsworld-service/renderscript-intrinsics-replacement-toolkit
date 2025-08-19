@@ -480,7 +480,7 @@ fun vectorSizeOfBitmap(bitmap: Bitmap): Int {
 }
 
 fun duplicateBitmap(original: Bitmap): Bitmap {
-    val copy = Bitmap.createBitmap(original.width, original.height, original.config)
+    val copy = Bitmap.createBitmap(original.width, original.height, original.config ?: Bitmap.Config.ARGB_8888)
     val canvas = Canvas(copy)
     canvas.drawBitmap(original, 0f, 0f, null)
     return copy
